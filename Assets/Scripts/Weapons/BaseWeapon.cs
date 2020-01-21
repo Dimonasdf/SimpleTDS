@@ -34,12 +34,12 @@ namespace Weapons
             if (_currentCoroutine != null) return;
             DirectAttack();
             _currentCoroutine = StartCoroutine(nameof(Cooldown));
-            _currentCoroutine = null;
         }
 
         private IEnumerator Cooldown()
         {
             yield return new WaitForSeconds(WeaponData.Cooldown);
+            _currentCoroutine = null;
         }
 
         public WeaponData WeaponData => weaponData;
